@@ -1,0 +1,63 @@
+::ng-deep button.button-product {
+    width: 90%;
+    display: block;
+    margin: 2% auto 2% auto;
+
+    > span {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.container-cards {
+    display: flex;
+    width: 90%;
+    margin: auto;
+
+    > mat-card {
+        width: 60%;
+    }
+    .container-cards-left {
+        width: 40%;
+        margin-right: 2%;
+        > mat-card:first-child {
+            margin-bottom: 2%;
+        }
+    }
+}
+
+.container-resume {
+    display: flex;
+    justify-content: space-between;
+
+    .image {
+        display: block;
+        width: 50%;
+        background: lightgray;
+    }
+
+    div.container-detail {
+        width: 50%;
+        margin-left: 4%;
+        p.p-detail {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+}
+
+::ng-deep .container-checkbox {
+    display: flex;
+    flex-direction: column;
+    
+    mat-checkbox .mat-checkbox-background, .mat-checkbox-frame {
+        border-radius: 100px;
+    }
+}
+
+table.mat-table {
+    width: 100%;
+}

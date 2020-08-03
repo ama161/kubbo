@@ -1,0 +1,39 @@
+::ng-deep button.button-products {
+    width: 90%;
+    display: block;
+    margin: 2% auto 2% auto;
+    > span {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+table.table-products {
+    width: 90%;
+    margin: auto;
+    padding: 3%;
+
+    mat-row {
+        &.focused-row {
+            font-weight: bold;
+        }
+        &:not(.focused-row):hover mat-cell {
+            color: #6E5EF8;
+        }
+        &:hover mat-cell {
+            font-size: medium;
+            transition: 0.5s;
+        }
+        &.focused-row {
+            font-size: medium;
+            font-weight: bold;
+        }
+    }
+    
+}
+
+mat-paginator {
+    width: 90%;
+    margin: auto;
+}
