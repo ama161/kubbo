@@ -1,1 +1,87 @@
-<p>product-detail works!</p>
+<button mat-flat-button color="primary" class="button-product">
+    <mat-icon svgIcon="back" (click)="back()"></mat-icon>
+    <span>Listado de productos</span> 
+    <mat-icon svgIcon="edit"></mat-icon>
+</button>
+
+<div class="container-cards">
+    <div class="container-cards-left">
+        <mat-card>
+            <p class="color-violet">Resumen del producto</p>
+            <div class="container-resume">
+                <span class="image"></span>
+                <div class="container-detail">
+                    <p class="p-detail">
+                        Producto <b>{{product.name}}</b>
+                    </p>
+                    <p class="p-detail">
+                        SKU <b>SKU {{product.sku}}</b>
+                    </p>
+                    <p class="p-detail">
+                        Código de barras <b>{{product.barcode}}</b>
+                    </p>
+                    <p class="p-detail">
+                        Precio <b>{{product.precio}} €</b>
+                    </p>
+                </div>
+            </div>
+            <div class="container-toggle">
+                <p>Estado</p>
+                <mat-slide-toggle [(ngModel)]="product.enabled" class="toggle"></mat-slide-toggle> 
+            </div>
+            
+        </mat-card>
+        <mat-card>
+            <p class="color-violet">Requerimientos del packging</p>
+            <section class="container-checkbox">
+                <mat-checkbox>Packging personalizado</mat-checkbox>
+                <mat-checkbox>Plegable</mat-checkbox>
+                <mat-checkbox>Envío en el propio contenedor</mat-checkbox>
+                <mat-checkbox>Flyer promocional</mat-checkbox>
+                <mat-checkbox>Obsequio promocional</mat-checkbox>
+                <mat-checkbox>Peligroso</mat-checkbox>
+                <mat-checkbox>Frágil</mat-checkbox>
+            </section>
+        </mat-card>
+    </div>
+    <mat-card>
+        <p class="color-violet">Inventario</p>
+        <table mat-table
+            [dataSource]="inventario" multiTemplateDataRows
+            class="table-products">
+            <ng-container matColumnDef="ciudad">
+                <mat-header-cell *matHeaderCellDef> Ciudad </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <img/>
+                    {{element.ciudad}}
+                </mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="pais">
+                <mat-header-cell *matHeaderCellDef> País </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    {{element.pais}}
+                </mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="almacen">
+                <mat-header-cell *matHeaderCellDef> Almacén </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    {{element.almacen}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="stock">
+                <mat-header-cell *matHeaderCellDef> Stock disponible </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    {{element.stock}} uds.
+                    <mat-progress-bar mode="determinate" value="{{element.stock}}" aria-valuemax="500"></mat-progress-bar>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+
+        </table>
+    </mat-card>
+</div>
