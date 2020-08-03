@@ -1,0 +1,34 @@
+button.button-products {
+    width: 90%;
+    display: block;
+    margin: 2% auto 2% auto;
+}
+
+table.table-products {
+    width: 90%;
+    margin: auto;
+    padding: 3%;
+
+    mat-row {
+        &.focused-row {
+            font-weight: bold;
+        }
+        &:not(.focused-row):hover mat-cell {
+            color: blue;
+        }
+        &:hover mat-cell {
+            font-size: medium;
+            transition: 0.5s;
+        }
+        &.focused-row {
+            font-size: medium;
+            font-weight: bold;
+        }
+    }
+    
+}
+
+mat-paginator {
+    width: 90%;
+    margin: auto;
+}
